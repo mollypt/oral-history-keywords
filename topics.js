@@ -7,9 +7,9 @@ const segments = []
 let metadata = {}
 let selectedTopic = null;
 let interviewIndex = 0
-const textPage = document.querySelector(".segment-page").cloneNode(true)
+// const textPage = document.querySelector(".segment-page").cloneNode(true)
 const topicsPage = document.querySelector(".topics-container").cloneNode(true)
-document.querySelector(".segment-page").remove()
+// document.querySelector(".segment-page").remove()
 
 function pluralPair(a, b) {
   return (a + 's' == b || a == b + 's')
@@ -49,12 +49,15 @@ function updateInterview(docs,event) {
   if (interviewIndex==numDocs-1) {
     interviewIndex = 0
   }
-  button.textContent = `<  ${interviewIndex+1} of ${numDocs}  >`;
+  // button.textContent = `<  ${interviewIndex+1} of ${numDocs}  >`;
+  button.textContent = `>`
   document.querySelector(".text-block").replaceChildren();
-  const file = docs[interviewIndex]
+  const file = docs[interviewIndex] //.replace("segments", "segments_processed")
+  // console.log("file: ", file)
   interviewIndex +=1
   let interviewID = file.split("/")[2].split('.txt')[0]
   interviewID = interviewID.substring(0, interviewID.lastIndexOf("-"))
+  console.log("interview index, id:", interviewIndex, interviewID)
 
   const interviewInfo = metadata[interviewID]
   const narrator = interviewInfo?.Narrator ?? null;
@@ -69,12 +72,18 @@ function updateInterview(docs,event) {
 
     d3.text(file).then(text => {
     const speech = document.createElement("p");
-    speech.textContent = text.replace(/\<.*?\>/g, "");
+    // speech.textContent = text.replace(/\<.*?\>/g, "");
+    speech.textContent = text
+    .replace(/<.*?>/g, "")
+    .split(/\r?\n/)
+    .filter(line => line.trim())
+    .join("\n\n");
+
+  
     document.querySelector(".text-block").appendChild(speech)
   }).catch(error => {
-    console.error("Could not load data:", error);
+    console.error("Could not load data:", error, file);
     updateInterview(docs)
-    // Add a message to the UI to let the user know something went wrong
   });
 }
 
@@ -97,13 +106,14 @@ function drawConnections(a, b) {
 function clickFnc(event, i) {
   if (selectedTopic) {
     if (document.querySelector(`.topic_${i}`).classList.contains('adj')) {
-      document.body.appendChild(textPage)
+      // document.body.appendChild(textPage)
       drawConnections(selectedTopic.split("_")[1], i)
-      document.querySelector(".topic-title1").textContent = topics[selectedTopic.split("_")[1]].replace(" ", "\n")
-      document.querySelector(".topic-title2").textContent = topics[i].replace(" ", "\n")
-      scrollToDiv()
-      setTimeout(resolve, 500); 
-      document.querySelector(".topics-container").remove();
+      // document.querySelector(".topic-title1").textContent = topics[selectedTopic.split("_")[1]].replace(" ", "\n")
+      // document.querySelector(".topic-title2").textContent = topics[i].replace(" ", "\n")
+      // scrollToDiv()
+      // setTimeout(resolve, 500); 
+      // document.querySelector(".topics-container").remove();
+      document.querySelector(".panel").classList.add("active")
     }
     reset()
     return
@@ -138,12 +148,10 @@ function mouseoutFnc(event, i, topic) {
 }
 
 function mouseoverFnc(event, i, topic) {
-  console.log('mouseover: ', i, topic)
     if (selectedTopic && document.querySelector(`.topic_${i}`).classList.contains('adj')) {
       // document.querySelector(".banner").textContent = topics[i] 
       // document.querySelector(".banner").classList.add('secondary')
       document.querySelectorAll(".adj").forEach(div=> {
-        console.log("div, topic: ", div, topic, selectedTopic)
         if (!div.classList.contains(selectedTopic) && !div.classList.contains(`topic_${i}`)) {
           div.classList.add("hidden")} 
         })
@@ -155,7 +163,6 @@ function mouseoverFnc(event, i, topic) {
     }
     const topicDivs = document.querySelectorAll(`.topic_${i}`)
     topicDivs.forEach(div => div.classList.add("on"))
-    console.log('topicDivs: ', topicDivs)
     document.querySelectorAll(`.keyword`).forEach(div => {
       div.classList.add("static-off")
     // if (!selectedTopic) {  document.querySelector(".banner").textContent = topics[i] }
