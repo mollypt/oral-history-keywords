@@ -4,6 +4,7 @@ const topic_prev = []
 const col = document.querySelector(".column-container")
 const co = [];
 const segments = []
+let panelOpen = false;
 let metadata = {}
 let selectedTopic = null;
 let interviewIndex = 0
@@ -20,12 +21,17 @@ function verbPair(a,b) {
 }
 
 function reset() {
+  if (panelOpen) return;
+
   selectedTopic = null
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("on"))
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("off"))
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("adj"))
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("pair"))
+  document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("hidden"))
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.add("static"))
+  document.querySelectorAll(".keyword").forEach(d => d.classList.remove("blur"))
+
   // document.querySelector(".banner").classList.remove("active"); 
   // document.querySelector(".banner").classList.remove("secondary"); 
 }
@@ -45,11 +51,13 @@ document.addEventListener('mouseleave', () => {
 
 function updateInterview(docs,event) {
   const numDocs = docs.length;
+  const xButton = document.querySelector(".x-button");
   const button = document.querySelector(".next-button");
   if (interviewIndex==numDocs-1) {
     interviewIndex = 0
   }
   // button.textContent = `<  ${interviewIndex+1} of ${numDocs}  >`;
+  xButton.textContent = "x"
   button.textContent = `>`
   document.querySelector(".text-block").replaceChildren();
   const file = docs[interviewIndex] //.replace("segments", "segments_processed")
@@ -57,7 +65,6 @@ function updateInterview(docs,event) {
   interviewIndex +=1
   let interviewID = file.split("/")[2].split('.txt')[0]
   interviewID = interviewID.substring(0, interviewID.lastIndexOf("-"))
-  console.log("interview index, id:", interviewIndex, interviewID)
 
   const interviewInfo = metadata[interviewID]
   const narrator = interviewInfo?.Narrator ?? null;
@@ -65,10 +72,11 @@ function updateInterview(docs,event) {
     updateInterview(docs)
     return
   }
-  document.querySelector(".narrator").textContent = narrator;
-  const interviewer = metadata[interviewID]["Interviewer"].replace(",", " and ")
+  const narratorFormat = narrator.replace(",", " & ")
+  const interviewer = metadata[interviewID]["Interviewer"].replace(",", " & ")
+  document.querySelector(".narrator").textContent = narratorFormat
   document.querySelector(".interviewer").textContent = 
-    `Interviewed by ${interviewer} on ${metadata[interviewID]["Date"]}`;
+    `Interviewed by ${interviewer} | ${metadata[interviewID]["Date"]}`;
 
     d3.text(file).then(text => {
     const speech = document.createElement("p");
@@ -100,10 +108,16 @@ function drawConnections(a, b) {
   document.querySelector(".text-block").replaceChildren();
   // document.querySelector(".next-button").removeEventListener();''
   document.querySelector(".next-button").addEventListener("click", (event) => { updateInterview(docs, event) })
+  document.querySelector(".x-button").addEventListener("click", (event) => {
+    document.querySelector(".panel").classList.remove("active");
+    panelOpen=false;
+    reset()
+  })
   updateInterview(docs)
 }
 
 function clickFnc(event, i) {
+  if (panelOpen) return;
   if (selectedTopic) {
     if (document.querySelector(`.topic_${i}`).classList.contains('adj')) {
       // document.body.appendChild(textPage)
@@ -114,6 +128,32 @@ function clickFnc(event, i) {
       // setTimeout(resolve, 500); 
       // document.querySelector(".topics-container").remove();
       document.querySelector(".panel").classList.add("active")
+      document.querySelectorAll(".keyword").forEach(d => d.classList.add("blur"))
+      panelOpen=true;
+
+      // populate first topic keyword containers 
+      const parent1 = document.querySelector(".topic-list.first")
+      parent1.replaceChildren(); // clear from previous
+      const keywordArr1 = topics[selectedTopic.split("_")[1]].split(" ")
+      keywordArr1.slice(0,14).forEach(keyword=>{
+        const keywordDiv = document.createElement("div");
+        keywordDiv.classList.add("keyword-container")
+        keywordDiv.textContent = keyword;
+        parent1.appendChild(keywordDiv)
+      })
+
+      const parent2 = document.querySelector(".topic-list.second")
+      parent2.replaceChildren(); // clear from previous
+      const keywordArr2 = topics[i].split(" ")
+      keywordArr2.slice(0,14).forEach(keyword=>{
+        const keywordDiv = document.createElement("div");
+        keywordDiv.classList.add("keyword-container")
+        keywordDiv.textContent = keyword;
+        parent2.appendChild(keywordDiv)
+      })
+      // document.querySelector(".topic-list.first").textContent = topics[selectedTopic.split("_")[1]].replace(" ", "\n")
+      // document.querySelector(".topic-list.second").textContent = topics[i].replace(" ", "\n")
+
     }
     reset()
     return
@@ -134,6 +174,7 @@ function clickFnc(event, i) {
 }
 
 function mouseoutFnc(event, i, topic) {
+  if (panelOpen) return;
   if (selectedTopic) { 
     // document.querySelector(".banner").classList.remove('secondary');
     // document.querySelector(".banner").textContent = topics[selectedTopic.split("_")[1]]; 
@@ -148,6 +189,7 @@ function mouseoutFnc(event, i, topic) {
 }
 
 function mouseoverFnc(event, i, topic) {
+    if (panelOpen) return;
     if (selectedTopic && document.querySelector(`.topic_${i}`).classList.contains('adj')) {
       // document.querySelector(".banner").textContent = topics[i] 
       // document.querySelector(".banner").classList.add('secondary')
@@ -209,6 +251,8 @@ d3.text("topics.tsv").then(data => {
   sortedKeywords.forEach(keyword => {
       
         const entryDiv = document.createElement("div");
+        entryDiv.classList.add('keyword')
+
         entryDiv.textContent =  keyword.toLowerCase();
         entryDiv.id = keyword;
         entryDiv.classList.add(`keyword`);

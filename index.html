@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="https://s3.amazonaws.com/static.getsnworks.com/fontawesome/5.15.2/css/all.min.css">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="preconnect" href="https://googleapis.com">
+        <link rel="preconnect" href="https://gstatic.com" crossorigin>
+        <link href="https://googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
         <script src="https://d3js.org/d3.v7.min.js"></script>
     </head>
@@ -19,13 +22,26 @@
         <!-- <div class = "banner"></div> -->
         <div class = "column-container"></div>
         <div class= "panel"> 
+            <div class="topic-list-column">
+                <div class="topic-list-header">Topic 1</div>
+                <div class = "topic-list first">
+                    <div class ="keyword-container"></div>
+                </div>
+                <div class="topic-list-header">Topic 2</div>
+                <div class = "topic-list second">
+                    <div class ="keyword-container"></div>
+                </div>
+            </div>
             <div class = "interview"> 
                 <div class = "interview-header">
-                    <div class = "narrator">Name here</div>
-                    <div class = "next-button"></div>
-                </div>
-                <div class = "interview-subheader">
-                    <div class = "interviewer">Interviewer</div>
+                    <div class= "header-row">
+                        <div class = "narrator">Name here</div>
+                        <div class = "next-button"></div>
+                        <div class = "x-button"></div>
+                    </div>
+                    <div class = "interview-subheader">
+                        <div class = "interviewer">Interviewer</div>
+                    </div>
                 </div>
                 <div class = "text-block"></div>
             </div>
