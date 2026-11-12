@@ -1,3 +1,5 @@
 all_segments_MALLET/*
 segments/*
 segments_processed/*
+formatted/*
+formatted

@@ -8,9 +8,22 @@ let panelOpen = false;
 let metadata = {}
 let selectedTopic = null;
 let interviewIndex = 0
-// const textPage = document.querySelector(".segment-page").cloneNode(true)
+let aboutOpen = false;
 const topicsPage = document.querySelector(".topics-container").cloneNode(true)
-// document.querySelector(".segment-page").remove()
+document.querySelector(".about-button").addEventListener("click", ()=> {
+  document.querySelector(".about-blurb-container").classList.toggle("showing")
+  reset()
+  aboutOpen = aboutOpen ? false : true;
+  document.querySelectorAll(".keyword").forEach(d => {
+    d.classList.toggle("medium")
+})
+
+});
+
+document.querySelector(".about-blurb-container .x").addEventListener("click", ()=> {
+  document.querySelector(".about-blurb-container").classList.toggle("showing")
+  document.querySelectorAll(".keyword").forEach(d => d.classList.toggle("blur"))
+});
 
 function pluralPair(a, b) {
   return (a + 's' == b || a == b + 's')
@@ -21,7 +34,7 @@ function verbPair(a,b) {
 }
 
 function reset() {
-  if (panelOpen) return;
+  if (panelOpen || aboutOpen) return;
 
   selectedTopic = null
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("on"))
@@ -31,9 +44,6 @@ function reset() {
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("hidden"))
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.add("static"))
   document.querySelectorAll(".keyword").forEach(d => d.classList.remove("blur"))
-
-  // document.querySelector(".banner").classList.remove("active"); 
-  // document.querySelector(".banner").classList.remove("secondary"); 
 }
 
 function scrollToDiv() {
@@ -43,24 +53,17 @@ function scrollToDiv() {
 
 document.addEventListener('mouseleave', () => {
     document.querySelectorAll(`.keyword`).forEach(div => {
-    div.classList.remove("static-off") 
-    // if (!selectedTopic) { document.querySelector(".banner").textContent = ""; }
-  
+    div.classList.remove("static-off")   
   })
 });
 
 function updateInterview(docs,event) {
   const numDocs = docs.length;
-  const xButton = document.querySelector(".x-button");
-  const button = document.querySelector(".next-button");
   if (interviewIndex==numDocs-1) {
     interviewIndex = 0
   }
-  // button.textContent = `<  ${interviewIndex+1} of ${numDocs}  >`;
-  xButton.textContent = "x"
-  button.textContent = `>`
   document.querySelector(".text-block").replaceChildren();
-  const file = docs[interviewIndex] //.replace("segments", "segments_processed")
+  const file = docs[interviewIndex].replace("segments", "formatted")
   // console.log("file: ", file)
   interviewIndex +=1
   let interviewID = file.split("/")[2].split('.txt')[0]
@@ -117,25 +120,22 @@ function drawConnections(a, b) {
 }
 
 function clickFnc(event, i) {
-  if (panelOpen) return;
+  if (panelOpen|| aboutOpen) return;
   if (selectedTopic) {
     if (document.querySelector(`.topic_${i}`).classList.contains('adj')) {
       // document.body.appendChild(textPage)
       drawConnections(selectedTopic.split("_")[1], i)
-      // document.querySelector(".topic-title1").textContent = topics[selectedTopic.split("_")[1]].replace(" ", "\n")
-      // document.querySelector(".topic-title2").textContent = topics[i].replace(" ", "\n")
-      // scrollToDiv()
-      // setTimeout(resolve, 500); 
-      // document.querySelector(".topics-container").remove();
       document.querySelector(".panel").classList.add("active")
       document.querySelectorAll(".keyword").forEach(d => d.classList.add("blur"))
+      document.querySelectorAll(".header").forEach(d => d.classList.add("off"))
+
       panelOpen=true;
 
       // populate first topic keyword containers 
       const parent1 = document.querySelector(".topic-list.first")
       parent1.replaceChildren(); // clear from previous
       const keywordArr1 = topics[selectedTopic.split("_")[1]].split(" ")
-      keywordArr1.slice(0,14).forEach(keyword=>{
+      keywordArr1.slice(0,13).forEach(keyword=>{
         const keywordDiv = document.createElement("div");
         keywordDiv.classList.add("keyword-container")
         keywordDiv.textContent = keyword;
@@ -174,7 +174,7 @@ function clickFnc(event, i) {
 }
 
 function mouseoutFnc(event, i, topic) {
-  if (panelOpen) return;
+  if (panelOpen || aboutOpen) return;
   if (selectedTopic) { 
     // document.querySelector(".banner").classList.remove('secondary');
     // document.querySelector(".banner").textContent = topics[selectedTopic.split("_")[1]]; 
@@ -189,7 +189,7 @@ function mouseoutFnc(event, i, topic) {
 }
 
 function mouseoverFnc(event, i, topic) {
-    if (panelOpen) return;
+    if (panelOpen || aboutOpen) return;
     if (selectedTopic && document.querySelector(`.topic_${i}`).classList.contains('adj')) {
       // document.querySelector(".banner").textContent = topics[i] 
       // document.querySelector(".banner").classList.add('secondary')
@@ -247,9 +247,8 @@ d3.text("topics.tsv").then(data => {
   }})
 
   const sortedKeywords = new Set(Object.keys(keywords).sort((a, b) => a.localeCompare(b)));
-  console.log('sorted keywords: ', sortedKeywords)
   sortedKeywords.forEach(keyword => {
-      
+        if (keyword.length < 1) return;
         const entryDiv = document.createElement("div");
         entryDiv.classList.add('keyword')
 

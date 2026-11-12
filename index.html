@@ -18,10 +18,57 @@
     </head>
 
 <body>
+    <div class="header">
+        <div class="title">Drawing Connections across the Densho Digital Repository</div>
+        <div class="about-button">
+            About
+        </div>
+    </div>
+    <div class="about-blurb-container">
+        <div class="about-text">
+            <div class="subtitle">How does it work?</div>
+            <br>
+            <p>Each keyword belongs to a "topic" in the Densho Digital Repository, an oral history collection about Japanese American incarceration during World War II. The topics are produced using a statistical technique (LDA) that identifies words that often occur together.</p>
+            <p>When you hover on a keyword, other keywords from the same topic light up.</p>
+            <p>When you select a keyword, only keywords from related topics remain. Topics are related if they repeatedly appear in the same interview chapters.</p>
+            <p>When you select another topic keyword, you can explore interview segments in which both topics are present.</p>
+            <p>The goal of this project is to help readers find thematic connections across the Densho Digital Repository. 
+            </p>
+        </div>
+        <div class="x"></div>
+    </div>
+
     <div class = "topics-container">
+        
         <!-- <div class = "banner"></div> -->
         <div class = "column-container"></div>
+
         <div class= "panel"> 
+            <div class="panel-header">
+                <div class= "header-content">
+                    <div class = "narrator">Name here</div>
+                    <div class = "interviewer">Interviewer</div>
+                </div>
+                <div class="buttons">
+                    <div class = "next-button">></div>
+                    <div class = "x-button">x</div>
+                </div>
+            </div>
+            
+            <div class="panel-content">
+            <div class = "interview"> 
+                <!-- <div class = "interview-header">
+                    <div class= "header-row">
+                        <div class = "narrator">Name here</div>
+                        <div class = "next-button"></div>
+                        <div class = "x-button"></div>
+                    </div>
+                    <div class = "interview-subheader">
+                        <div class = "interviewer">Interviewer</div>
+                    </div>
+                </div> -->
+                <div class = "text-block"></div>
+            </div>
             <div class="topic-list-column">
                 <div class="topic-list-header">Topic 1</div>
                 <div class = "topic-list first">
@@ -32,18 +79,6 @@
                     <div class ="keyword-container"></div>
                 </div>
             </div>
-            <div class = "interview"> 
-                <div class = "interview-header">
-                    <div class= "header-row">
-                        <div class = "narrator">Name here</div>
-                        <div class = "next-button"></div>
-                        <div class = "x-button"></div>
-                    </div>
-                    <div class = "interview-subheader">
-                        <div class = "interviewer">Interviewer</div>
-                    </div>
-                </div>
-                <div class = "text-block"></div>
             </div>
             <!-- <div class ="topic-title">
                 <div class="topic-title1"></div>
@@ -54,23 +89,5 @@
         </div>
     </div>
 
-    <!-- <div class = "segment-page">
-        <div class = "interview"> 
-            <div class = "interview-header">
-                <div class = "narrator">Name here</div>
-                <div class = "next-button"></div>
-            </div>
-            <div class = "interview-subheader">
-                <div class = "interviewer">Interviewer</div>
-            </div>
-            <div class = "text-block"></div>
-        </div>
-        <div class ="topic-title">
-            <div class="topic-title1"></div>
-        </div>
-        <div class ="topic-title">
-            <div class="topic-title2"></div>
-        </div>
-    </div> -->
 </body>
 <script type="module" src="topics.js"></script>
