@@ -10,21 +10,20 @@ def main():
             # Open and read the file
             print(file_path)
             with open(file_path, "r", encoding="utf-8") as file:
-                content = file.read()
-                content = content.replace("\n ", "")
-                # content = content.replace("\t", "")
-                content = content.replace("   ", " ")
-                # content = content.replace("  ", " ")
                 path_name = Path(file_path).name
+                print(path_name)
+                if (path_name) != ".DS_Store":
 
-                content = re.sub(r"\<.*?\>", "", content).strip()
-                content = content.replace("  ", " ")
-                content = content.replace(" ,", ",")
-                content = content.replace(' "', '"')
+                    content = file.read()
+                    content = content.replace("\n ", "")
+                    content = content.replace("   ", " ")
+                    content = re.sub(r"\<.*?\>", "", content).strip()
+                    content = content.replace("  ", " ")
+                    content = content.replace(" ,", ",")
 
-                # Open the file in write mode with UTF-8 encoding
-                with open(f"formatted/{path_name}", "w", encoding="utf-8") as file:
-                    file.write(content)
+                    # Open the file in write mode with UTF-8 encoding
+                    with open(f"formatted/{path_name}", "w", encoding="utf-8") as file:
+                        file.write(content)
 
 
 if __name__ == "__main__":

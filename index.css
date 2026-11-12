@@ -4,6 +4,8 @@ body {
      margin: 0;
          max-width: 100svw;
     overflow-x: hidden;
+    font-family: 'franklin-gothic-urw', sans-serif !important;
+
     /* font-family: "sofia-pro" !important; */
 }
 
@@ -13,17 +15,20 @@ body {
     justify-content: space-between;
     height: fit-content;
     max-width: 100svw;
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
-    margin-bottom: 0;
-    padding-top: 1svh;
-    font-family: "Inter", serif;
+    margin-top: 0;
+    margin-bottom: .35%;
+    padding-top: 2svh;
+    padding-bottom: .8svh;
+    /* font-family: "Inter", serif; */
     padding-right: 4.35svh;
     padding-left: 4.35svh;
     font-weight: 400;
-    text-transform: uppercase;
-    font-style: italic;
+    /* text-transform: uppercase; */
+    /* font-style: italic; */
     color: rgba(255, 255, 255, 0.996);
+    border-bottom: .5px solid white;
 }
 
 
@@ -38,13 +43,15 @@ a, a:visited, a:hover, a:active, a:focus {
 
 }
 
-.about-title {
-    font-weight: 600;
+.subtitle {
+    font-size: 18px !important;
 }
 .about-blurb-container {
     background-color: #00131e9a;
+    background-color: rgba(255, 255, 255, 0.962);
+    color: black;
     /* background-color: lab(95.05% -2.64 -9.55 / 0.733); */
-    width: 40svw;
+    width: 36svw;
     height: fit-content;
     opacity: 0;
     margin: auto;
@@ -56,14 +63,19 @@ a, a:visited, a:hover, a:active, a:focus {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-family: "inter", serif;
+    /* font-family: "inter", serif; */
     z-index: -1;
-    padding: 3%;
+    padding: 1.2%;
+    padding-left: 2%;
+    padding-right: 2%;
     border-radius: 4px;
     color: rgba(255, 255, 255, 0.59);
     color: #f7fcffe1;
+    color: black;
     text-align: center;
-    transition: opacity .2s
+    transition: opacity .15s ease;
+    font-family: 'franklin-gothic-urw', sans-serif;;
+
 }
 
 .about-blurb-container.showing {
@@ -71,9 +83,6 @@ a, a:visited, a:hover, a:active, a:focus {
     z-index: 500;
 }
 
-.subtitle {
-    font-weight: 500;
-}
 
 p {
     font-weight: 300;
@@ -92,30 +101,26 @@ p {
     padding-right: 4.35svh;
     padding-top: .25svh;
     height: 97svh;
+    transition: filter .8ms;
 } 
-.keyword div {
-    filter: blur(0px); 
-    opacity: 1;
-    transition: filter 0.5s ease-in, opacity 0.5s ease-in;
-    font-family: "Inter", serif;
-}
+
 
 .blur {
     filter: blur(8px); 
     opacity: .7;
 }
 div .static {
-    font-size: 18px;
-    margin-left: 8px;
+    font-size: 20px;
+    margin-left: 6px;
     font-weight: 400;
-    margin-top: 6px;
+    margin-top: 3px;
     color: #b4e1ffe1; /* #56c2ff; */
     opacity: .2;
     /* font-family: "itc-avant-garde-gothic-pro"; */
-    font-family: Inter, serif; ;
+    /* font-family: Inter, serif; ; */
     text-transform: uppercase;
     font-style: italic;
-    word-spacing: 5px;
+    word-spacing: 4px;
     transition: 50ms;
 
 }
@@ -136,7 +141,7 @@ div .static {
     /* border-radius: 2px 0px 0px 2px;  */
     /* outline: 1px solid white; */
     transition: transform .5s ease-in-out; 
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -187,7 +192,6 @@ div .static {
 
 div .medium {
     opacity: .02 !important;
-    transition: 50ms;
     transition: .15s;
 }
 
@@ -290,7 +294,7 @@ div .pair {
     z-index: 10;
     /* opacity: .95; */
     padding-right: 2%;
-    font-family: 'Inter', serif;
+    /* font-family: 'Inter', serif; */
     /* outline: 1px solid gray; */
 }
 
@@ -303,7 +307,7 @@ div .pair {
     text-transform: uppercase;
     font-style: italic;
     font-weight: 500;
-    font-family: 'Inter', serif;
+    /* font-family: 'Inter', serif; */
     /* font-weight: 600; */
     /* color: white;  */
 }
@@ -339,7 +343,7 @@ div .pair {
     background-color: #acdaff;
     background-color: #133424;
     background-color: #ff9a00;
-    font-family: 'Inter', serif;
+    /* font-family: 'Inter', serif; */
     margin-top: 0;
     padding-left: 3%;
     padding-bottom: 1.5%;
@@ -350,7 +354,7 @@ div .pair {
 
 .narrator {
     color: rgba(255, 255, 255, 0.91);
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
     font-weight: 500;
     font-size: 18px;
     margin-bottom: .5%;
@@ -363,7 +367,7 @@ div .pair {
     font-weight: 500;
     /* margin-bottom: .25em; */
     font-size:14px;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
 }
 
 .interviewer {
@@ -380,23 +384,26 @@ div .pair {
     height: 100%;
     text-align: justify;
     margin-top: 0%;
-    font-family: "Inter", "serif";
+    /* font-family: "Inter", "serif"; */
     overflow-y: scroll;
     border-right: 1px solid rgb(223, 223, 223);
 }
 
 .text-block {
-    font-size: 14px;
+    font-size: 15px;
     width: 100%;
     white-space: pre-line;
     /* font-family: "minion-pro", "itc-avant-garde-gothic-pro","franklin-gothic-urw","adobe-garamond-pro", "Georgia",  Georgia, Helvetica, sans-serif; */
-    font-family: 'Inter', serif;
+    /* font-family: 'Inter', serif; */
+
 
     p {
         margin-bottom: 10px;
         font-weight: 400;
         color: #222222;
-        font-family: 'Inter', serif;
+        /* font-family: 'Inter', serif; */
+        font-family: 'franklin-gothic-urw', sans-serif;;
+
 
     }
 

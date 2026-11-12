@@ -43,7 +43,7 @@ function reset() {
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("pair"))
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.remove("hidden"))
   document.querySelectorAll(`.keyword`).forEach(div => div.classList.add("static"))
-  document.querySelectorAll(".keyword").forEach(d => d.classList.remove("blur"))
+  document.querySelectorAll(".column-container").forEach(d => d.classList.remove("blur"))
 }
 
 function scrollToDiv() {
@@ -126,7 +126,7 @@ function clickFnc(event, i) {
       // document.body.appendChild(textPage)
       drawConnections(selectedTopic.split("_")[1], i)
       document.querySelector(".panel").classList.add("active")
-      document.querySelectorAll(".keyword").forEach(d => d.classList.add("blur"))
+      document.querySelectorAll(".column-container").forEach(d => d.classList.add("blur"))
       document.querySelectorAll(".header").forEach(d => d.classList.add("off"))
 
       panelOpen=true;
