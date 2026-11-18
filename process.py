@@ -7,7 +7,6 @@ dir_path = Path("segments")
 def main():
     for file_path in list(dir_path.iterdir()):
         if file_path.is_file():
-            # Open and read the file
             print(file_path)
             with open(file_path, "r", encoding="utf-8") as file:
                 path_name = Path(file_path).name
