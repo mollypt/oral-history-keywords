@@ -145,7 +145,7 @@ function clickFnc(event, i) {
       const parent2 = document.querySelector(".topic-list.second")
       parent2.replaceChildren(); // clear from previous
       const keywordArr2 = topics[i].split(" ")
-      keywordArr2.slice(0,14).forEach(keyword=>{
+      keywordArr2.slice(0,13).forEach(keyword=>{
         const keywordDiv = document.createElement("div");
         keywordDiv.classList.add("keyword-container")
         keywordDiv.textContent = keyword;
@@ -241,8 +241,8 @@ d3.text("topics.tsv").then(data => {
   const keywords = {}
   topics.forEach((topic, i) => {
     if (topic_prev[i] > .015) {
-    topic.split(" ").slice(0, 8).forEach(keyword => {
-      keywords[keyword] = i
+    topic.split(" ").slice(0, 10).forEach(keyword => {
+      keywords[keyword.replace("_", " ")] = i
     })
   }})
 

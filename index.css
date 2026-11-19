@@ -100,7 +100,7 @@ p {
     padding: 3svh;
     padding-right: 4.35svh;
     padding-top: .25svh;
-    height: 97svh;
+    height: 97%;
     transition: filter .8ms;
 } 
 
@@ -120,8 +120,9 @@ div .static {
     /* font-family: Inter, serif; ; */
     text-transform: uppercase;
     font-style: italic;
-    word-spacing: 4px;
+    word-spacing: 5px;
     transition: 50ms;
+    line-height: 1.3
 
 }
 
@@ -181,13 +182,13 @@ div .static {
 
 .buttons {
     position: absolute;
-    left: 95%;
+    left: 90%;
     top: 1%;
     display: flex;
     flex-direction: row;
     width: fit-content;
     height: fit-content;
-    gap: 15%;
+    gap: 20%;
 }
 
 div .medium {
