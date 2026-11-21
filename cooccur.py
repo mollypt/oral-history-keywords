@@ -7,7 +7,7 @@ NUM_TOPICS = 80
 '''
 Read doc-topics.txt and get dict of filename : distributions
 '''
-doc_topics = "all_segments_MALLET/doc-topics.txt"
+doc_topics = "all_segments_MALLET/doc-topics.tsv"
 doc_distribs = {}
 with open(doc_topics) as f:
     for line in f:
@@ -21,7 +21,8 @@ active_files = [[]] * 80
 for segment in list(doc_distribs.keys()):
     prevalences = doc_distribs[segment]
     for i, p in enumerate(prevalences):
-        if float(p) > .09:
+        # if float(p) > .09:
+        if float(p) > .11:
             if len(active_files[i]) > 0:
                 active_files[i].append(segment)
             else:
