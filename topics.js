@@ -63,7 +63,11 @@ function updateInterview(docs,event) {
     interviewIndex = 0
   }
   document.querySelector(".text-block").replaceChildren();
-  const file = docs[interviewIndex].replace("segments", "formatted")
+  // const file = docs[interviewIndex].replace("segments", "formatted")
+  const file = new URL(
+      docs[interviewIndex].replace("segments", "formatted"),
+      document.baseURI
+  ).href;
   // console.log("file: ", file)
   interviewIndex +=1
   let interviewID = file.split("/")[2].split('.txt')[0]
