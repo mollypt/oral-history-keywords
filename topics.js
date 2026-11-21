@@ -178,20 +178,20 @@ function clickFnc(event, i) {
       const parent1 = document.querySelector(".topic-list.first")
       parent1.replaceChildren(); // clear from previous
       const keywordArr1 = topics[selectedTopic.split("_")[1]].split(" ")
-      keywordArr1.slice(0,13).forEach(keyword=>{
+      keywordArr1.slice(0,11).forEach(keyword=>{
         const keywordDiv = document.createElement("div");
         keywordDiv.classList.add("keyword-container")
-        keywordDiv.textContent = keyword;
+        keywordDiv.textContent = keyword.replace("_", " ");
         parent1.appendChild(keywordDiv)
       })
 
       const parent2 = document.querySelector(".topic-list.second")
       parent2.replaceChildren(); // clear from previous
       const keywordArr2 = topics[i].split(" ")
-      keywordArr2.slice(0,13).forEach(keyword=>{
+      keywordArr2.slice(0,11).forEach(keyword=>{
         const keywordDiv = document.createElement("div");
         keywordDiv.classList.add("keyword-container")
-        keywordDiv.textContent = keyword;
+        keywordDiv.textContent = keyword.replace("_", " ");;
         parent2.appendChild(keywordDiv)
       })
       // document.querySelector(".topic-list.first").textContent = topics[selectedTopic.split("_")[1]].replace(" ", "\n")
@@ -304,7 +304,7 @@ async function initialize() {
 
       topics.forEach((topic, i) => {
           if (topic_prev[i] > .015) {
-              topic.split(" ").slice(0, 10).forEach(keyword => {
+              topic.split(" ").slice(0, 9).forEach(keyword => {
                   keywords[keyword.replace("_", " ")] = i;
               });
           }
@@ -335,7 +335,7 @@ async function initialize() {
           entryDiv.addEventListener("mouseout", event => {
               mouseoutFnc(event, keywords[keyword], keywords[keyword]);
           });
-
+          document.querySelector(".loading-msg")?.remove();
           col.appendChild(entryDiv);
       });
 
