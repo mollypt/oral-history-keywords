@@ -94,8 +94,13 @@ function updateInterview(docs,event) {
     document.querySelector(".text-block").appendChild(speech)
   }).catch(error => {
     console.error("Could not load data:", error, file);
-    updateInterview(docs)
-  });
+    if (interviewIndex < docs.length) {
+        updateInterview(docs);
+    } else {
+        document.querySelector(".text-block").textContent =
+            "Unable to load interviews.";
+    }
+});
 }
 
 function drawConnections(a, b) {
