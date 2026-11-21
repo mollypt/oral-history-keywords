@@ -57,65 +57,73 @@ document.addEventListener('mouseleave', () => {
   })
 });
 
-function updateInterview(docs,event) {
+async function updateInterview(docs, event) {
   const numDocs = docs.length;
-  if (interviewIndex==numDocs-1) {
-    interviewIndex = 0
-  }
+  const textBlock = document.querySelector(".text-block");
+
+  textBlock.replaceChildren();
 
   if (numDocs === 0) {
-    document.querySelector(".text-block").textContent =
-      "No interviews found.";
+      textBlock.textContent = "No interviews found.";
       return;
   }
 
-  if (interviewIndex >= numDocs) {
-    interviewIndex = 0;
+  // Try each document at most once
+  for (let attempt = 0; attempt < numDocs; attempt++) {
+
+      // Get next document and advance index
+      const doc = docs[interviewIndex];
+      interviewIndex = (interviewIndex + 1) % numDocs;
+
+      const relativeFile = doc.replace("segments", "formatted");
+      const file = new URL(relativeFile, document.baseURI).href;
+
+      // Extract interview ID from filename
+      const filename = relativeFile.split("/").pop();
+      const interviewID = filename
+          .replace(".txt", "")
+          .replace(/-[^-]+$/, "");
+
+      const interviewInfo = metadata[interviewID];
+      const narrator = interviewInfo?.Narrator;
+
+      // Skip if metadata is missing
+      if (!narrator || !interviewInfo?.Interviewer) {
+          console.warn("Missing metadata:", interviewID);
+          continue;
+      }
+
+      try {
+          // Load transcript
+          const text = await d3.text(file);
+
+          // Update interview information
+          document.querySelector(".narrator").textContent =
+              narrator.replace(",", " & ");
+
+          document.querySelector(".interviewer").textContent =
+              `Interviewed by ${interviewInfo.Interviewer.replace(",", " & ")} | ${interviewInfo.Date}`;
+
+          // Display transcript
+          const speech = document.createElement("p");
+
+          speech.textContent = text
+              .replace(/<.*?>/g, "")
+              .split(/\r?\n/)
+              .filter(line => line.trim())
+              .join("\n\n");
+
+          textBlock.appendChild(speech);
+
+          return; // Successfully loaded an interview
+
+      } catch (error) {
+          console.error("Could not load data:", error, file);
+          // Continue to next document
+      }
   }
 
-  document.querySelector(".text-block").replaceChildren();
-
-  const file = new URL(
-      docs[interviewIndex].replace("segments", "formatted"),
-      document.baseURI
-  ).href;
-
-  interviewIndex++;
-  let interviewID = file.split("/")[2].split('.txt')[0]
-  interviewID = interviewID.substring(0, interviewID.lastIndexOf("-"))
-
-  const interviewInfo = metadata[interviewID]
-  const narrator = interviewInfo?.Narrator ?? null;
-  if (!narrator) { 
-    updateInterview(docs)
-    return
-  }
-  const narratorFormat = narrator.replace(",", " & ")
-  const interviewer = metadata[interviewID]["Interviewer"].replace(",", " & ")
-  document.querySelector(".narrator").textContent = narratorFormat
-  document.querySelector(".interviewer").textContent = 
-    `Interviewed by ${interviewer} | ${metadata[interviewID]["Date"]}`;
-
-    d3.text(file).then(text => {
-    const speech = document.createElement("p");
-    // speech.textContent = text.replace(/\<.*?\>/g, "");
-    speech.textContent = text
-    .replace(/<.*?>/g, "")
-    .split(/\r?\n/)
-    .filter(line => line.trim())
-    .join("\n\n");
-
-  
-    document.querySelector(".text-block").appendChild(speech)
-  }).catch(error => {
-    console.error("Could not load data:", error, file);
-    if (interviewIndex < docs.length) {
-        updateInterview(docs);
-    } else {
-        document.querySelector(".text-block").textContent =
-            "Unable to load interviews.";
-    }
-});
+  textBlock.textContent = "Unable to load any interviews.";
 }
 
 function drawConnections(a, b) {
