@@ -1,0 +1,41 @@
+TI: So at some point, the aerospace and what you were doing really merged with the high tech.
+SA: Oh, it was... in fact, in a lot of respects, we drove the high tech. And Silicon Graphic and Sun adopted all the workstation development we did and created the next generation workstation.
+TI: So at any point in your career did you think of jumping to the high tech side?
+SA: Well, I was in the high tech all the time.
+TI: Well, or consumer high tech, like the Apples...
+SA: Well, what happened here is I was so tied into the national security programs that I could not let go of that. Could not let go of that.
+TI: Because of just your commitment to national security?
+SA: Yeah, yeah. And not only that, but see, the next generation that we had was networking. Because all the services were slow pipe, so we had to break... in fact, every service had their own encryption device. Every service had their own waveform, and this went on and on. So we had to build, we had to build a satellite system in which we had to develop all of our encryption devices, our own waveform, our own router. We built a router, put it in the satellite, so we can have an end-to-end global system that tied all the services together. And that's how we worked the services to come together. And once we did that, we were able to put a network system together. And that's what we demonstrated in the Gulf War.
+TI: So did that remain kind of a secure proprietary system, or is that now the basis of something now?
+SA: That's the basis of today's internet.
+TI: Okay, so the DARPA net and things like that.
+SA: Because we worked the DARPA net and the satellites all together.
+TI: Wow. I'm in awe. This is pretty amazing stuff. This is pretty cool.
+SA: And then, if you think about today's... if you really think about what we're doing with unmanned aerial vehicles, that's a low-flying satellite.
+TI: It's a what?
+SA: It's a low-flying satellite.
+TI: A low-flying satellite.
+SA: That is a low-flying satellite.
+TI: You mean satellite technology is such that it's sort of self-aware and can see things?
+SA: No, no, because there's a huge backroom operation. Those things don't work. I mean, you take Apple, what drives the Apple? It's the backroom. Handset is the user...
+TI: Right, so when I talk to Siri, it's really going to the backroom, the mainframe...
+SA: And there's many, many satellites, many, many routers, and it's all worked through the backroom.
+TI: So in some ways, I liken it to... because I lived pretty much through the PC revolution, and going from mainframe technologies back to PC, but it's now the opposite where the devices are essentially dumb terminals, in some ways, going to the...
+SA: Yeah. I mean, the cloud is put together with satellites and fibernets. That's what the cloud is.
+TI: So let me ask a philosophical... what's the danger of all this?
+SA: Well, I'll tell you what the danger is. See, we released all of this that was put together: GPS, communications satellites, the DARPA net, imaging satellites, everything, was commercialized right after the Cold War. There was a presidential directive, and I worked on a lot of the presidential directives, so I know exactly how this all came about. And it got commercialized and it got released to the world. Not only released... and the backbone of this thing are satellites, fibernets, they were all U.S.-built. GPS works because we got thirty satellites working. Guess whose satellites? They're U.S. government satellites, and the whole world is using them. And not only that, not only do we give out the technology, we gave out all the manufacturing to everybody. During the Cold War, all the manufacturing had to be developed in this country, because we couldn't let it out. Now, we let some of it out to our allies like Japan, who really worked hard with the U.S., Germany did. So there's countries that we worked with, England, UK. So the strong ally nations all benefited with this joint effort to develop the technology. We gave that all away, that's the flat earth. And not only that, but the U.S. stopped all of the R&D. If you think about the old Bell lab, the old RCA lab, the old IBM lab, and we have labs in our company, they're all gone. We have nothing now. And we are not rebuilding it.
+TI: So we've put this infrastructure out there, we've put the manufacturing out of the U.S., and we're not replenishing...
+SA: We're not replenishing.
+TI: ...with R&D.
+SA: That's right.
+TI: And in fact, from the corporate world at Microsoft, what they call R&D is really product development, it's not research.
+SA: It's all application R&D. There's no basic R&D.
+TI: Yeah, I mean, losing Bell Labs and things like that...
+SA: That's right, they're all gone now. All gone.
+TI: And the university systems aren't...
+SA: Well, they're trying, but you can only do so much in a university.
+TI: And with the economy and cuts, the government is looking to cut a lot of that basic research.
+SA: Yeah. So that's the problem, serious problem. So I see us just like 1955 over again. We're going to get a rude awakening.
+TI: Like another Sputnik.
+SA: We're going to get another rude awakening.
+TI: Interesting.

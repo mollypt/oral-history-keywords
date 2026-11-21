@@ -1,0 +1,62 @@
+TI: And is this the kind of process that you continued? Because your career is long, and we would be here for three hours talking about the rest, but is that kind of how you did things? You would kind of jump in and...
+SA: Well, the next job was at Lockheed. Because the whole rocket engine field, when you think about the development period between about 1954-'55 period, over a five year period, we developed all the rocket engines.
+TI: Up to the Saturn, right?
+SA: Except for the shuttle -- yeah, including the Saturn.
+TI: Which did the Apollo, right?
+SA: Yes. So all of those engines were developed in that six-year period.
+TI: Even though they weren't used until the late '60s, right?
+SA: That's because it takes a long time from engine development to fly in the booster. The engine is the long lead item, because without the engine... and the engine at that time was a trial and error process. So we blew up so many engines in the Santa Susana Mountains. I could tell you all kinds of stories about it, because we were playing with exotic propellants at that time. Because we were trying to get the ISP up as high as possible. But anyway, that was an exciting period. And then I was there for three and a half years.
+TI: But that was as far as it was going to go.
+SA: Saturn engine was the ultimate, because that was both LOX-hydrogen and... LOX-hydrocarbon and LOX-hydrogen. So we hit both propellants head on, and we said there's not going to be much more beyond that.
+TI: Unless there's new technology, that's as far as that's going to bring it. And so you decided to jump to a whole new realm.
+SA: Yeah, to satellites.
+TI: Which, again, was probably unknown or a lot of...
+SA: Yeah. It was, I think when I got there, there was two hundred people there.
+TI: So what is it about you that makes doing new things exciting? I mean, it's sort of like you were... I mean, some people don't like that. They would say, well, great, I'm kind of the expert on rockets, even though we've maxed that out, it's good for probably ten, fifteen years, I can really ride this and do that.
+SA: Yes, yes.
+TI: But you, as soon as, in some ways, you got to the point where you could kind of coast a little bit, you left that for something else.
+SA: That's right.
+TI: So was that something that you did as a kid, or was that a pattern of yours? I mean, where did that come from?
+SA: Well, I don't know. To me, it was exciting to do that.
+TI: Okay, so just like a passion.
+SA: It was a passion to do that. So when I went to Lockheed, again, I got on the first most critical program for the space age, and that was the first photographic reconnaissance satellite program. And that was because the U-2 had been shot down, we lost the eyes over the Soviet Union, and Eisenhower says, "You are going to get a satellite up there in nine months."
+TI: And it's going to take pictures and you're going to be able to see everything?
+SA: Yeah, yeah.
+TI: But even with a satellite, I mean, was the photography so well-developed that they could zoom in that high resolution?
+SA: Well, I'll tell you something. In Corona, we got to about thirty feet. The next generation which we developed in, started development in 1964, the first one, Corona flew... the first one flew in 1960, and operationally we got to about thirty feet. The next generation that we put up, the next generation we put up, we got to three feet.
+TI: How does that compare with, like, Google Earth technology?
+SA: Today, commercially, it's one meter.
+TI: So pretty similar to what you were doing.
+SA: Yes.
+TI: Okay. That's commercially, though. Okay, interesting. And this is, I'm sorry, the three feet threshold was what year, roughly?
+SA: Well, we developed that three feet system in 1964-'65. And we flew it, we flew it successfully... well actually, I shouldn't say... yeah, we started flying these high resolution systems in '64, '65. And those systems flew all the way up to about the mid-'80s. And each satellite was able to photograph the entire Soviet Union and China. We had five hundred pounds of film on each satellite. I mean, two thousand pounds, five hundred pounds per bucket, because we have to return film with a reentry vehicle.
+TI: That's right, I forget it's all film back then. It's not digital.
+SA: No electronics in those days. In fact, we flew those satellites with single transistor devices. That's all we had. And then we took the single transistors and made a hybrid out of it by building a bigger can and soldering all the transistors together. [Laughs]
+TI: Yeah, I have to remember... that's amazing.
+SA: And the difficulty there was we didn't have the manufacturing technique to solder these things to be survivable in space, because we've got a radiation environment. And then during the testing process, we have leaky cans, and the air would contaminate the transistors and oxidize it, and the part begins to degrade. So, I mean, we had a lot of development problems.
+TI: Now, all these satellites in these older programs, are they still flying around, or are they space junk and they've come into the atmosphere and burn up?
+SA: We bring every one down.
+TI: Okay, so you just burn 'em up. Okay, interesting.
+SA: So I got in the front end of that, and that was an exciting period for me.
+TI: Right. And earlier, during the break, you were saying how the imagery spawned all these other kind of side projects that have become...
+SA: Well, yes. The first thing we had to do was we had to get a weather satellite up there because we had to study the cloud pattern. Because otherwise we were getting pictures of the cloud cover all the time. [Laughs] So we got a satellite, weather satellite working. The other thing we concluded is we were getting all these film, wanted to make maps, and we were using a stellar camera to get the Ephemeris position proper. And we used to have benchmarks, what we called coin targets, that we take photographs of, so that we can geometrically calibrate position, in space position on the ground. And so when we create the maps, we have everything all indexed. And that's how we came up with the GIS system.
+TI: Okay, so GPS, Global Positioning Satellites.
+SA: And then we decided we got to develop a global (positioning) satellite system.
+TI: Okay. So all that was...
+SA: That was 1964, we got started on it.
+TI: So you were on the ground floor of all these new things that essentially run the iPhone now. [Laughs] That's interesting.
+SA: So that came about. In the meantime, we had to develop wider and wider band communication satellites, because with imagery, if you want to pass data around, you need bandwidth. So we had to go really work on high speed digital chips.
+TI: So how do you feel about, so all the technology you're talking about -- I joke, but it's true. They have now, are in the consumer realm, GPS, imagery, satellite weather things, and literally I do use all of those on my iPhone.
+SA: That's right. Well, and the other thing that got started was the DARPA net.
+TI: Right, so the internet.
+SA: And that was started in about the 1964 period, too. So all of these were coupled together. If you think about imaging satellites, communications satellites, GPS, the DARPA net, they all, if you really look at the whole system, it was all, we put it all together.
+TI: And did you in any way think about or forecast how these technologies are being used today?
+SA: No, we were so busy developing. And so basically we went through the mechanical, electrical age, where we had cameras and motors and so on, to a period which we really worked hard on, digital electronics and software, so we can get computers into the satellites.
+TI: Right, so you had to pioneer a lot of things.
+SA: Yeah, so we pioneered a lot of that. And then we...
+TI: And computer-wise, who did you guys work with back then?
+SA: Everybody. Everybody. We bought every computer that we... in fact, what we did was, in order to create an imagery workstation, we had to build our own workstation. So we decided to build our own chips. So we built twenty-seven custom chips, because we needed to get terabytes of imagery transmission through all the workstations from one workstation to another. So we had to develop, we developed the Ampex tape recorder, and just put everything together. We even built a Pick and Place Machine.
+TI: A "Pick and Place Machine"?
+SA: Yeah, it's, you know, every custom chip, we created an eleven-layer board, eleven-layer board, and we had to place chips on the eleven. And if we did it by hand, we'd never get there, so we went to Apple and got them to help us put the Pick and Place Machine, it's very early in the game.
+TI: Interesting.
+SA: So we built our own workstation.

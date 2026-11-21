@@ -1,0 +1,42 @@
+TI: So you get your master's at Stanford, and then what did you do?
+SA: Well, it was sort of interesting because one professor wanted me to go to Caterpillar, because he was the head of research at Caterpillar, and he retired and was teaching at Stanford.
+TI: Is Caterpillar Midwest?
+SA: Yeah, you know, Caterpillar tractor in Peoria, Illinois. So he says -- spring break, before I got my master's -- he says, "I'm going to get you an airplane ticket, I'm going to get Caterpillar to buy you a ticket, and we're going to fly you to Caterpillar.
+TI: To get a job interview.
+SA: To get a job interview. So the other professor heard about and said, "Well, if you're going to do that, you got to go to Argonne National Lab," because nuclear engineering was becoming a key item at that time.
+TI: And what year was this?
+SA: This was 1955. And so I got an interview at Argonne National Lab, and also at Westinghouse in Pennsylvania. That was their nuclear division at that time. And another professor says, "You got to go see the jet engine plant," so I went to GE's Cincinnati plant. Well, there was two of us that went through this thing, we both got the same treatment. And we went there and we caught a blizzard in Chicago, we went to Caterpillar and it was cold and just, I mean, it was just snowy. It was terrible. [Laughs] And then we went to Pittsburgh, and it was a coal mining town at that time, it was dirty, the buildings were all gray. And we went to Cincinnati and it wasn't any better, so we said, "God, how can anybody work out here?" [Laughs] And this is in April when it's during spring break. So we decided we don't want to go to any of these places, so we went to Southern California where aerospace was starting up, both aircraft, jet engines, and at that time space, missiles in space.
+TI: So that was an exciting time in terms of that industry.
+SA: That's right.
+TI: In some ways, I would liken it to maybe the Silicon Valley.
+SA: In fact, I want to get back to that, because I have a story to tell at the end. So anyway, what happened was, there was a company called Rocketdyne, which was a division of North American Aviation, just had started the rocket engine development in the Santa Susana Mountains in Canoga Park. And so two of us jumped at that. We said, "That's the place to go."
+TI: Because that was kind of like the future, that was like the new, high-tech...
+SA: That was the frontier. That was the frontier.
+TI: The exciting, new stuff was happening right there.
+SA: That's right. And right about that time, Sputnik got launched.
+TI: Oh, right.
+SA: And here we said, "Oh, my god." We didn't know anything about satellites.
+TI: But at that point, hardly anyone knew anything about it.
+SA: Well, there was no classes in space at all, or rocketry or satellites, nothing. Absolutely none. And so I went to Rocketdyne, and they looked at me and says, "You got a master's, you're in thermodynamics, you took combustion engineering, you're going to go solve a problem that we've been working on, that we haven't been able to figure out." So I got tossed into this most difficult problem, which was high frequency combustion instability. And we were blowing up engines, and we'd have missiles on a test stand, we'd light the engine, and before it lifts off, it blows up. And it was high frequency instability, and at that time we didn't understand it, but once we started to analyze this, and we built a two-dimensional engine with quartz grass with a Schilieren photograph, we can see the detonation frequency. And what happened was the detonation velocity and the acoustic resonance frequency was too close to each other.
+TI: Oh, so it was kind of like, it would kind of feed off each other, the energy?
+SA: Yeah, you got it to resonate. The combustion energy triggered the instability. And once you did that, the combustion process just cycled into resonance.
+TI: Yeah, it reminds me of, there's the classic case up in the Northwest, the Narrows Bridge, and how the wind would resonate, and all of a sudden the oscillation would just create this...
+SA: Same thing; same thing, yes. So we conquered that.
+TI: So this is interesting. I mean, this is like high stakes, expensive, why weren't they recruiting PhDs to do this? Why a master's? Did you ever find that that was a hindrance in terms of only having a master's and not a PhD? Like why weren't they hiring your professors?
+SA: Well, I think I happened to just land there at the right time.
+TI: So they needed this problems solved, you were probably the most qualified they had around...
+SA: Yeah, yeah. They threw me at it. So they took a senior engineer who knew how to set the test up and everything, and I became sort of the analyst, the young analyst, and we worked together. And I still remember we were able to get some... we developed a camera with a million frames per second, took pictures, and we went to Huntsville. Huntsville was run by Von Braun at that time. And Von Braun got totally excited with what we were doing, because this was the Saturn V engine, the big million and a half pound engine. And it was going unstable every time.
+TI: And so you had this camera, a million frames per second, because you could then slow motion it?
+SA: You could capture the wave, the motion, you'd capture the wave motion. And we had to verify that wave motion and the acoustic resonance was in tune with each other.
+TI: Just from hearing you tell this story, I could tell you got pretty passionate about this.
+SA: Oh, yeah.
+TI: This was pretty exciting.
+SA: Well, in fact, it was really exciting because here I was a young engineer, flew to Huntsville, two of us, went in front of Von Braun...
+TI: Yeah, the "Father of Rockets."
+SA: And briefed him with the Schilieren pictures, and he got totally excited. [Laughs] And what we ended up doing is built baffles inside the chamber to kill, change the resident frequencies. And if you look at a Saturn V engine, there's radio baffles across.
+TI: Because, again, once you asked the right question and frame it, then you can come up with the right solution.
+SA: Yeah, yeah.
+TI: And in some ways, I think about this, it seemed like a pretty simple solution.
+SA: That's right; it was a very simple solution once we understood.
+TI: So was this the project that sort of catapulted you? I mean, this was kind of like something that because you were successful, got you on the radar with other people?
+SA: Yeah, because that got me into a supervisory job, and I was only probably a year out of school.
