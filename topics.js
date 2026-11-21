@@ -225,7 +225,8 @@ d3.text("topics.tsv").then(data => {
       co[topic_number] = topic_list
     })
 
-    d3.text("all_segments_MALLET/doc-topics.tsv").then(docTopicData => {
+    // do to: change path for git vs. local 
+    d3.text("doc-topics.tsv").then(docTopicData => {
       const docTopics = docTopicData.split('\n')
       docTopics.forEach(row => {
         segments[row.split("\t", 2)[1]] = row.split("\t").splice(2)
