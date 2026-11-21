@@ -250,61 +250,95 @@ function mouseoverFnc(event, i, topic) {
 })
 }
 
-d3.text("topics.tsv").then(data => {
-  const lines = data.split('\n');
-  lines.forEach(line => {
-    topics.push(line.split("\t")[2])
-    topic_prev.push(line.split("\t")[1])
-  })
+async function initialize() {
+  try {
+      const [topicData, cooccurData, docTopicData, meta] =
+          await Promise.all([
+              d3.text("topics.tsv"),
+              d3.text("cooccur.txt"),
+              d3.text("doc-topics.tsv"),
+              d3.csv("interview_metadata.csv")
+          ]);
 
-  d3.text("cooccur.txt").then(cooccurData => {
-    const cooccur_lists = cooccurData.split('\n');
-    cooccur_lists.forEach((line, topic_number) => {
-      const topic_list = line.split(" ")
-      co[topic_number] = topic_list
-    })
+      // Load topics
+      topicData.split(/\r?\n/).forEach(line => {
+          const fields = line.split("\t");
+          topics.push(fields[2]);
+          topic_prev.push(fields[1]);
+      });
 
-    // do to: change path for git vs. local 
-    d3.text("doc-topics.tsv").then(docTopicData => {
-      const docTopics = docTopicData.split('\n')
-      docTopics.forEach(row => {
-        segments[row.split("\t", 2)[1]] = row.split("\t").splice(2)
-      })
-    })
+      // Load co-occurrence data
+      cooccurData.split(/\r?\n/).forEach((line, i) => {
+          co[i] = line.split(" ");
+      });
 
-    d3.csv("interview_metadata.csv").then(meta => {
-      meta.forEach(row=>{
-        const fname = row["Filename"].split("-transcript")[0].split(".txt")[0]
-        metadata[fname] = row;
-      })
-    })
-  const keywords = {}
-  topics.forEach((topic, i) => {
-    if (topic_prev[i] > .015) {
-    topic.split(" ").slice(0, 10).forEach(keyword => {
-      keywords[keyword.replace("_", " ")] = i
-    })
-  }})
+      // Load document-topic data
+      docTopicData.split(/\r?\n/).forEach(row => {
+          if (!row.trim()) return;
 
-  const sortedKeywords = new Set(Object.keys(keywords).sort((a, b) => a.localeCompare(b)));
-  sortedKeywords.forEach(keyword => {
-        if (keyword.length < 1) return;
-        const entryDiv = document.createElement("div");
-        entryDiv.classList.add('keyword')
+          const fields = row.split("\t");
+          segments[fields[1]] = fields.slice(2);
+      });
 
-        entryDiv.textContent =  keyword.toLowerCase();
-        entryDiv.id = keyword;
-        entryDiv.classList.add(`keyword`);
-        entryDiv.classList.add(`topic_${keywords[keyword]}`);
-        entryDiv.classList.add(`static`);
+      // Load metadata
+      meta.forEach(row => {
+          const fname = row["Filename"]
+              .split("-transcript")[0]
+              .split(".txt")[0];
 
-        entryDiv.addEventListener('mouseover', (event) => { mouseoverFnc(event, keywords[keyword], keywords[keyword]) })
-        entryDiv.addEventListener('click', (event) => { clickFnc(event, keywords[keyword], keywords[keyword]) })
-        entryDiv.addEventListener('mouseout', (event) => { mouseoutFnc(event, keywords[keyword], keywords[keyword]) })
-        // keywords.push(keyword)
-        col.appendChild(entryDiv);
-    
-    })
-  })
-})
+          metadata[fname] = row;
+      });
+
+      console.log("Initialization complete:");
+      console.log("Topics:", topics.length);
+      console.log("Co-occurrence records:", co.length);
+      console.log("Document records:", Object.keys(segments).length);
+      console.log("Metadata records:", Object.keys(metadata).length);
+
+      // Create keywords only after all data is ready
+      const keywords = {};
+
+      topics.forEach((topic, i) => {
+          if (topic_prev[i] > .015) {
+              topic.split(" ").slice(0, 10).forEach(keyword => {
+                  keywords[keyword.replace("_", " ")] = i;
+              });
+          }
+      });
+
+      const sortedKeywords = new Set(
+          Object.keys(keywords).sort((a, b) => a.localeCompare(b))
+      );
+
+      sortedKeywords.forEach(keyword => {
+          if (keyword.length < 1) return;
+
+          const entryDiv = document.createElement("div");
+          entryDiv.classList.add("keyword");
+          entryDiv.textContent = keyword.toLowerCase();
+          entryDiv.id = keyword;
+          entryDiv.classList.add(`topic_${keywords[keyword]}`);
+          entryDiv.classList.add("static");
+
+          entryDiv.addEventListener("mouseover", event => {
+              mouseoverFnc(event, keywords[keyword], keywords[keyword]);
+          });
+
+          entryDiv.addEventListener("click", event => {
+              clickFnc(event, keywords[keyword], keywords[keyword]);
+          });
+
+          entryDiv.addEventListener("mouseout", event => {
+              mouseoutFnc(event, keywords[keyword], keywords[keyword]);
+          });
+
+          col.appendChild(entryDiv);
+      });
+
+  } catch (error) {
+      console.error("Failed to initialize visualization:", error);
+  }
+}
+
+initialize();
 
