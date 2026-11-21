@@ -76,7 +76,11 @@ async function updateInterview(docs, event) {
       interviewIndex = (interviewIndex + 1) % numDocs;
 
       const relativeFile = doc.replace("segments", "formatted");
-      const file = new URL(relativeFile, document.baseURI).href;
+      //const file = new URL(relativeFile, document.baseURI).href;
+      const file = new URL(
+        `oral-history-keywords/${relativeFile}`,
+          window.location.origin + "/"
+      ).href;
 
       // Extract interview ID from filename
       const filename = relativeFile.split("/").pop();
