@@ -127,15 +127,26 @@ async function updateInterview(docs, event) {
 }
 
 function drawConnections(a, b) {
-  console.log('drawing connections')
-  interviewIndex = 0 
-  const docs = []
-  Object.keys(segments).forEach(f => {
-    const prevs = segments[f]
-    if (prevs[a] > .12 && prevs[b] > .12) {
-      docs.push(f)
-    }
-  })
+    interviewIndex = 0;
+    const docs = [];
+
+    console.log("Selected topics:", a, b);
+    console.log("Number of segment records:", Object.keys(segments).length);
+    console.log("Sample segment:", Object.keys(segments)[0]);
+    console.log("Sample values:", segments[Object.keys(segments)[0]]);
+    console.log("Selected topic values:", 
+        segments[Object.keys(segments)[0]]?.[a],
+        segments[Object.keys(segments)[0]]?.[b]
+    );
+
+    Object.keys(segments).forEach(f => {
+        const prevs = segments[f];
+        if (prevs[a] > .12 && prevs[b] > .12) {
+            docs.push(f);
+        }
+    });
+
+  console.log("Matching interviews:", docs.length);
   document.querySelector(".text-block").replaceChildren();
   // document.querySelector(".next-button").removeEventListener();''
   document.querySelector(".next-button").addEventListener("click", (event) => { updateInterview(docs, event) })
