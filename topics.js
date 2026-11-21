@@ -62,14 +62,25 @@ function updateInterview(docs,event) {
   if (interviewIndex==numDocs-1) {
     interviewIndex = 0
   }
+
+  if (numDocs === 0) {
+    document.querySelector(".text-block").textContent =
+      "No interviews found.";
+      return;
+  }
+
+  if (interviewIndex >= numDocs) {
+    interviewIndex = 0;
+  }
+
   document.querySelector(".text-block").replaceChildren();
-  // const file = docs[interviewIndex].replace("segments", "formatted")
+
   const file = new URL(
       docs[interviewIndex].replace("segments", "formatted"),
       document.baseURI
   ).href;
-  // console.log("file: ", file)
-  interviewIndex +=1
+
+  interviewIndex++;
   let interviewID = file.split("/")[2].split('.txt')[0]
   interviewID = interviewID.substring(0, interviewID.lastIndexOf("-"))
 
